@@ -1,0 +1,69 @@
+<odoo>
+    <data>
+
+        <!-- action course -->
+        <record id="action_course_list" 
+            model="ir.actions.act_window">
+            <field name="name">Daftar Kursus</field>
+            <field name="res_model">academic.course</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                Click to add course
+                </p>
+                <p>Klik tombol create untuk membuat kursus baru</p>
+            </field>
+        </record>     
+
+       <record id="action_session_list" 
+            model="ir.actions.act_window">
+            <field name="name">Daftar Pertemuan</field>
+            <field name="res_model">academic.session</field>
+            <field name="view_mode">tree,form,calendar,graph,kanban</field>
+        </record>
+
+        <record id="action_attendee_list" 
+            model="ir.actions.act_window">
+            <field name="name">Absensi Mahasiswa</field>
+            <field name="res_model">academic.attendee</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="elearning" 
+            name="E-Learning" sequence="1" />
+
+        <menuitem id="elearning_1" 
+            name="Transaksi" sequence="1"
+            parent="elearning" />
+
+        <menuitem id="elearning_2" 
+            name="Laporan" sequence="2"
+            parent="elearning" />
+
+        <menuitem id="elearning_1a" 
+            name="Kursus" sequence="1" 
+            parent="elearning_1" 
+            action="action_course_list" />
+
+        <menuitem id="elearning_1b" 
+            name="Pertemuan" sequence="2" 
+            parent="elearning_1" 
+            action="action_session_list" />
+
+        <menuitem id="elearning_1c"
+            name="Absensi Mahasiswa" sequence="3"
+            parent="elearning_1"
+            action="action_attendee_list"/>
+
+        <menuitem id="elearning_2a" 
+            name="Nilai Mahasiswa" sequence="2" 
+            parent="elearning_2" 
+            action="action_course_list" />
+
+        <menuitem id="elearning_2b" 
+            name="Kehadiran" sequence="1" 
+            parent="elearning_2" 
+            action="action_course_list" />
+
+    </data>
+</odoo>

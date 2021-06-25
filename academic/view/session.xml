@@ -1,0 +1,107 @@
+<odoo>
+    <data>
+
+        <!-- tree view session -->
+        <record id="view_academic_session_tree" model="ir.ui.view">
+            <field name="name">academic.session.tree</field>
+            <field name="model">academic.session</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Session">
+                    <field name="name"/>
+                    <field name="course_id"/>
+                    <field name="start_date"/>
+                    <field name="seats"/>
+                    <field name="taken_seats" widget="progressbar"/>
+                    <field name="active"/>
+                </tree>            
+            </field>
+        </record>
+
+        <!-- form view session -->
+        <record id="view_academic_session_form" model="ir.ui.view">
+            <field name="name">academic.session.form</field>
+            <field name="model">academic.session</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Session">
+                    <header>
+                    
+                        <button string="Confirm" type="object"
+                            name="action_confirm" states='df'/>
+                        <button string="Approve" type="object"
+                            name="action_approve" states='cf'/>
+                        <button string="Reject" type="object"
+                            name="action_reject" states='cf'/>
+
+                        <field name="state" widget="statusbar"/>
+
+                    </header>
+                    <group>
+                        <field name="name"/>
+                        <field name="course_id"/>
+                        <field name="start_date"/>
+                        <field name="duration"/>
+                        <field name="seats"/>
+                        <field name="active"/>
+                    </group>
+                    <field name="attendee_ids">
+                        <tree string="Absensi Mahasiswa" editable="bottom">
+                            <field name="partner_id"/>
+                        </tree>
+                    </field>
+                </form>            
+            </field>
+        </record> 
+
+        <!-- calendar view session -->
+        <record id="view_academic_session_calendar" model="ir.ui.view">
+            <field name="name">academic.session.calendar</field>
+            <field name="model">academic.session</field>
+            <field name="arch" type="xml">
+                <calendar date_start="start_date" color="course_id">
+                    <field name="name"/>
+                </calendar>
+            </field>
+        </record>
+
+        <!-- graph bar/pie/line view session -->
+        <record id="view_academic_session_bar" model="ir.ui.view">
+            <field name="name">academic.session.bar</field>
+            <field name="model">academic.session</field>
+            <field name="arch" type="xml">
+                <graph type="bar">
+                    <field name="course_id"/>
+                </graph>
+            </field>
+        </record>
+
+        <!-- kanban view session -->
+        <record id="view_academic_session_kanban" model="ir.ui.view">
+            <field name="name">academic.session.kanban</field>
+            <field name="model">academic.session</field>
+            <field name="arch" type="xml">
+                <kanban>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="oe_kanban_vignette">
+
+                                <!-- judul -->
+                                <h4>
+                                    <a type="open"><field name="name"/></a>
+                                </h4>
+
+                                <!-- detil -->
+                                <ul>
+                                    <li>Quota: <field name="seats"/></li>
+                                    <li>Okupansi: <field name="taken_seats"/>%</li>
+                                </ul>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+    </data>
+</odoo>

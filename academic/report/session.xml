@@ -1,0 +1,65 @@
+<odoo>
+    <data>
+    
+        <!-- MENUBAR report-->
+        <report
+            id="report_session_menu"
+            string="Session"
+            model="academic.session"
+            report_type="qweb-pdf"
+            file="academic.session"
+            name="academic.session_report"
+        />
+
+        <!-- Mengambil data session -->
+        <template id="session_report">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="x">
+                    <t t-call="academic.session_report_document"/>
+                </t>
+            </t>
+        </template>
+
+        <!-- Menampilkan data pada report -->
+        <!-- Template report -->
+        <template id="session_report_document">
+            <t t-call="web.external_layout">
+
+                <table class="table table-condensed">
+
+                    <tr>
+                        <td>Matakuliah</td>
+                        <td><span t-field="x.course_id.name"/></td>
+                    </tr>
+
+                    <tr>
+                        <td>Pertemuan</td>
+                        <td><span t-field="x.name"/></td>
+                    </tr>
+
+                    <tr>
+                        <td>Dosen</td>
+                        <td><span t-field="x.course_id.responsible_id"/></td>
+                    </tr>
+
+                    <tr>
+                        <td>Tanggal</td>
+                        <td><span t-field="x.start_date"/></td>
+                    </tr>
+                    
+                </table>
+
+                <h3>Attendee</h3>
+                <table class="table table-condensed">
+                    <tr>
+                        <th>Mahasiswa</th>
+                    </tr>
+                    <tr t-foreach="x.attendee_ids" t-as="mhs">
+                        <td><span t-field="mhs.partner_id"/></td>
+                    </tr>
+                </table>
+            </t>
+        </template>
+
+    </data>
+</odoo>
