@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_perpus_buku,access.perpus.buku,model_perpus_buku,,1,1,1,1
+access_perpus_pinjam,access.perpus.pinjam,model_perpus_pinjam,,1,1,1,1
+access_perpus_pinjamdetil,access_perpus_pinjamdetil,model_perpus_pinjamdetil,,1,1,1,1

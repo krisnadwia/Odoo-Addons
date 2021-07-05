@@ -1,0 +1,36 @@
+<odoo>
+
+    <!-- tree view pinjam -->
+    <record id="perpus_pinjam_tree" model="ir.ui.view">
+        <field name="name">perpus.pinjam.tree</field>
+        <field name="model">perpus.pinjam</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="Daftar Peminjam Buku"> 
+                <field name="tgl_pinjam"/>
+            </tree>            
+        </field>
+    </record>        
+
+    <!-- form view pinjam -->
+    <record id="perpus_pinjam_form" model="ir.ui.view">
+        <field name="name">perpus.pinjam.form</field>
+        <field name="model">perpus.pinjam</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="Transaksi Pinjam Buku">
+                <group>
+                    <field name="tgl_pinjam"/>
+                </group>
+                <field name="pinjamdetil_ids">
+                    <tree string="Daftar Buku Yang Dipinjam" editable="bottom">
+                        <field name="buku_id" 
+options="{'no_create_edit':True, 'no_create':True, 'no_open':True}" />
+                        <field name="jumlah"/>
+                    </tree>
+                </field>
+            </form>            
+        </field>
+    </record>
+        
+</odoo>

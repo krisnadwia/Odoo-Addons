@@ -1,0 +1,38 @@
+<odoo>
+    <data>
+        <!-- action buku -->
+        <record id="action_buku" model="ir.actions.act_window">
+            <field name="name">Daftar Buku</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">perpus.buku</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_type">form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Input data buku
+                </p>
+            </field>
+        </record>
+
+        <!-- action pinjaman -->
+       <record id="action_pinjam" model="ir.actions.act_window">
+            <field name="name">Transaksi Peminjaman Buku</field>
+            <field name="res_model">perpus.pinjam</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_create">
+                    Input peminjaman buku
+                </p>
+            </field>
+        </record>   
+
+        <menuitem id="perpus_utama" name="Perpustakaan"/>
+        <menuitem id="perpus_master" name="Data Master" 
+            parent="perpus_utama" sequence="1"/>
+        <menuitem id="perpus_buku" name="Daftar Buku" 
+            parent="perpus_master" sequence="1" action="action_buku"/>
+        <menuitem id="perpus_pinjam" name="Pinjam Buku" 
+            parent="perpus_utama" sequence="1" action="action_pinjam"/>
+
+    </data>
+</odoo>

@@ -1,0 +1,57 @@
+<odoo>
+    <data>
+        <record id="buku1" model="perpus.buku">
+            <field name="judul">Belajar Python 3.2</field>
+            <field name="deskripsi">Buku tentang Pemrograman</field>
+        </record>
+        <record id="buku2" model="perpus.buku">
+            <field name="judul">ODOO 12 Essential</field>
+            <field name="deskripsi">Buku tentang Pemrograman</field>
+        </record>
+        <record id="buku3" model="perpus.buku">
+            <field name="judul">Memahami Layout Website</field>
+            <field name="deskripsi">Buku tentang User Interface</field>
+        </record>
+        <record id="buku4" model="perpus.buku">
+            <field name="judul">Belajar Android UI/UX</field>
+            <field name="deskripsi">Buku tentang User Interface</field>
+        </record>
+
+        <record id="pinjam1" model="perpus.pinjam">
+            <field name="tgl_pinjam">2021/07/01</field>
+        </record>
+        <record id="pinjam2" model="perpus.pinjam">
+            <field name="tgl_pinjam">2021/07/10</field>
+        </record>
+        <record id="pinjam3" model="perpus.pinjam">
+            <field name="tgl_pinjam">2021/07/20</field>
+        </record>
+
+        <record id="pinjam_detil1" model="perpus.pinjamdetil">
+            <field name="pinjam_id" ref="pinjam1"/>
+            <field name="buku_id" ref="buku1"/>
+            <field name="jumlah">1</field>
+        </record>
+        <record id="pinjam_detil2" model="perpus.pinjamdetil">
+            <field name="pinjam_id" ref="pinjam1"/>
+            <field name="buku_id" ref="buku2"/>
+            <field name="jumlah">2</field>
+        </record>
+        <record id="pinjam_detil3" model="perpus.pinjamdetil">
+            <field name="pinjam_id" ref="pinjam2"/>
+            <field name="buku_id" ref="buku2"/>
+            <field name="jumlah">1</field>
+        </record>
+        <record id="pinjam_detil4" model="perpus.pinjamdetil">
+            <field name="pinjam_id" ref="pinjam2"/>
+            <field name="buku_id" ref="buku3"/>
+            <field name="jumlah">2</field>
+        </record>
+        <record id="pinjam_detil5" model="perpus.pinjamdetil">
+            <field name="pinjam_id" ref="pinjam3"/>
+            <field name="buku_id" ref="buku4"/>
+            <field name="jumlah">1</field>
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,29 @@
+<odoo>
+
+    <!-- tampilan treeview -->
+    <record id="perpus_buku_tree" model="ir.ui.view">
+        <field name="name">perpus_buku_tree</field>
+        <field name="model">perpus.buku</field>
+        <field name="arch" type="xml">
+            <tree string="Daftar Buku">
+                <field name="judul"/>
+                <field name="deskripsi"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- tampilan formulir -->
+    <record id="perpus_buku_form" model="ir.ui.view">
+        <field name="name">perpus_buku_form</field>
+        <field name="model">perpus.buku</field>
+        <field name="arch" type="xml">
+            <form string="Buku">
+                <group>
+                    <field name="judul"/>
+                    <field name="deskripsi"/>
+                </group>
+            </form>
+        </field>
+    </record>
+
+</odoo>
